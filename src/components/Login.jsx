@@ -15,7 +15,7 @@ import Error from "./Error";
 import useFetch from "../hooks/useFetch";
 import { login } from "../db/apiAuth";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { UrlState } from "@/context";
+import { UrlState } from "../context";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -36,7 +36,7 @@ const Login = () => {
     };
 
     const { data, error, loading, fn: fnLogin } = useFetch(login, formData);
-    const { fetchUser } = UrlState
+    const { fetchUser } = UrlState()
 
     useEffect(() => {
         if (error === null && data) {
